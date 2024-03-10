@@ -43,17 +43,17 @@ function M.update(pkg_names, auto_install)
         local pkg_avail, pkg = pcall(registry.get_package, pkg_name)
         if not pkg_avail then
           utils.notify(
-            ("Mason: %s is not available"):format(pkg_name),
+            ("%s is not available"):format(pkg_name),
             vim.log.levels.ERROR
           )
         else
           if not pkg:is_installed() then
             if auto_install then
-              utils.notify(("Mason: Installing %s"):format(pkg.name))
+              utils.notify(("Installing %s"):format(pkg.name))
               pkg:install()
             else
               utils.notify(
-                ("Mason: %s not installed"):format(pkg.name),
+                ("%s not installed"):format(pkg.name),
                 vim.log.levels.WARN
               )
             end
@@ -61,7 +61,7 @@ function M.update(pkg_names, auto_install)
             pkg:check_new_version(function(update_available, version)
               if update_available then
                 utils.notify(
-                  ("Mason: Updating %s to %s"):format(
+                  ("Updating %s to %s"):format(
                     pkg.name,
                     version.latest_version
                   )
@@ -69,12 +69,12 @@ function M.update(pkg_names, auto_install)
                 pkg:install():on(
                   "closed",
                   function()
-                    utils.notify(("Mason: Updated %s"):format(pkg.name))
+                    utils.notify(("Updated %s"):format(pkg.name))
                   end
                 )
               else
                 utils.notify(
-                  ("Mason: No updates available for %s"):format(pkg.name)
+                  ("No updates available for %s"):format(pkg.name)
                 )
               end
             end)
