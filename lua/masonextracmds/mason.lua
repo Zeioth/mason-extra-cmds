@@ -4,8 +4,8 @@
 --  Non critical functions used by the updater to have better Mason integration.
 
 --    Functions:
---      -> update      → update a single mason package.
---      -> updateall   → update all mason packages.
+--      -> update       → update a single mason package.
+--      -> update_all   → update all lazy, mason, and treesitter packages.
 
 local M = {}
 local utils = require("masonextracmds.utils")
