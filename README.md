@@ -5,7 +5,7 @@ This plugins adds the command `:MasonUpdateAll`.
 The same as opening mason and update packages.
 
 ## Why
-Because we want new users to be able to update easily.
+Because if you can update in one step, why using two.
 
 ## Tested versions
 Mason `v1.x.x`
