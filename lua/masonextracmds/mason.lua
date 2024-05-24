@@ -1,16 +1,13 @@
 --- ### Mason utils
 --
 --  DESCRIPTION:
---  Non critical functions used by the updater to have better Mason integration.
-
---    Functions:
---      -> update_all   → update all lazy, mason, and treesitter packages.
+--  Command to update all mason packages.
 
 local M = {}
 local utils = require("masonextracmds.utils")
 
---- This function works the same as the Mason command `:MasonUpdateAll`,
---- but with better notifications and support for Mason registries.
+--- Implement this missing Mason command.
+--- Delete once it's implemented upstream.
 function M.update_all()
   local registry_avail, registry = pcall(require, "mason-registry")
   if not registry_avail then
