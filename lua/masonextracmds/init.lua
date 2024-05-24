@@ -7,7 +7,7 @@ local M = {}
 
 function M.setup()
 
-  -- Creaete extra Mason commands
+  -- Create extra Mason commands
   cmd("MasonUpdateAll", function()
     mason.update_all()
   end, { desc = "Update Mason Packages" })
