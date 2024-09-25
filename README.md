@@ -22,5 +22,8 @@ On lazy
 },
 ```
 
+## FAQ
+**What if I also want to update lazy packages?** (WIP documentation).
+
 ## Tested versions
 Mason `v1.x.x`
