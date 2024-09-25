@@ -2,7 +2,7 @@
 This plugins adds the command `:MasonUpdateAll`.
 
 ## What it does
-The same as opening mason and update packages.
+Same as mason update all, but without having to open mason. This is cool for autocmds and stuff.
 
 ## How to use
 On lazy
