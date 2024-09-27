@@ -2,7 +2,7 @@
 This plugins adds the command `:MasonUpdateAll`.
 
 ## What it does
-It allows you to update all mason plugins through a Neovim command, so you don't need to open mason. This is cool for key mappings, autocmds and stuff.
+It allows you to update all mason packages through a Neovim command, so you don't need to open mason. This is cool for key mappings, autocmds and stuff.
 
 ## How to use
 On lazy
