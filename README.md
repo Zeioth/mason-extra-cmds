@@ -24,7 +24,7 @@ On lazy
 
 ## Events
 * **Can I run lazy automatically after `MasonUpdateAll`?** Yes.
-```
+```lua
 --- EXAMPLE: Run lazy after `:MasonUpdateAll` finishes updating.
 vim.api.nvim_create_autocmd("User", {
   pattern = "MasonUpdateAllComplete",
@@ -35,7 +35,7 @@ vim.api.nvim_create_autocmd("User", {
 ```
 
 * **Can I run `:MasonUpdateAll` automatically after a lazy update?** Yes.
-```
+```lua
 --- EXAMPLE: Run mason after lazy finishes updating.
 vim.api.nvim_create_autocmd("User", {
   pattern = "LazyInstall",
