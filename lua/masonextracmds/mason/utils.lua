@@ -47,7 +47,7 @@ end
 function M.any_package_installed(installed_pkgs)
   if #installed_pkgs == 0 then
     utils.notify("No updates available")
-    utils.trigger_event("User MasonUpdateCompleted")
+    utils.trigger_event("User MasonUpdateAllComplete")
     return false
   end
   return true
@@ -87,7 +87,7 @@ function M.notify_update_complete(updates_found)
   else
     utils.notify("No updates available")
   end
-  utils.trigger_event("User MasonUpdateCompleted")
+  utils.trigger_event("User MasonUpdateAllComplete")
 end
 
 return M
