@@ -2,7 +2,7 @@
 This plugins adds the command `:MasonUpdateAll`.
 
 ## What it does
-Same as mason update all, but without having to open mason. This is cool for autocmds and stuff.
+It allows you to update all mason plugins through a Neovim command, so you don't need to open mason. This is cool for key mappings, autocmds and stuff.
 
 ## How to use
 On lazy
@@ -22,8 +22,31 @@ On lazy
 },
 ```
 
-## FAQ
-**What if I also want to update lazy packages?** (WIP documentation).
+## Events
+* **Can I run lazy automatically after `MasonUpdateAll`?** Yes.
+```
+--- EXAMPLE: Run lazy after `:MasonUpdateAll` finishes updating.
+vim.api.nvim_create_autocmd("User", {
+  pattern = "MasonUpdateAllComplete",
+  callback = function()
+    vim.cmd(":Lazy update")
+  end,
+})
+```
+
+* **Can I run `:MasonUpdateAll` automatically after a lazy update?** Yes.
+```
+--- EXAMPLE: Run mason after lazy finishes updating.
+vim.api.nvim_create_autocmd("User", {
+  pattern = "LazyInstall",
+  callback = function()
+    vim.cmd(":MasonUpdateAll")
+  end,
+})
+```
+
+Through the same mechanism you could also do `:TSUpdate` to update `treesitter`, for example.
 
 ## Tested versions
-Mason `v1.x.x`
+* Neovim: `0.10`/`0.11`
+* Mason: `v1.x.x`
