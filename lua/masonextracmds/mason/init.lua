@@ -20,7 +20,7 @@ function M.update_all()
   local registry = utils.get_mason_registry()
   if not registry then return false end
 
-  -- Update the registry of updates, and run this function as callback.
+  -- update the registry of updates, and run this function as callback.
   registry.update(vim.schedule_wrap(function(success, updated_registries)
     -- guard clause: if failed, exit.
     if not success then
