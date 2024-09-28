@@ -1,6 +1,8 @@
 # MasonExtraCmds
 This plugins adds the command `:MasonUpdateAll`.
 
+![screenshot_2024-09-28_18-08-09_002163534](https://github.com/user-attachments/assets/82221f3c-54f7-4dea-a79e-3c6a99a86054)
+
 ## What it does
 It allows you to update all mason packages through a Neovim command, so you don't need to open mason. This is cool for key mappings, autocmds and stuff.
 
