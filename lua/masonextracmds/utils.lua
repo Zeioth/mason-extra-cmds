@@ -1,4 +1,11 @@
 --- ### General utils
+--
+--  DESCRIPTION:
+--  General functions used across this plugin.
+
+--    Functions:
+--      -> notify                   → Send a notification with a default title.
+--      -> trigger_event            → Manually trigger an event.
 
 local M = {}
 
