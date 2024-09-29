@@ -18,9 +18,7 @@ function M.notify(msg, type, opts)
   local default_opts = { title = "mason.nvim" }
   local combined_opts = vim.tbl_deep_extend("force", default_opts, opts)
 
-  vim.schedule(function()
-    vim.notify(msg, type, combined_opts)
-  end)
+  vim.schedule(function() vim.notify(msg, type, combined_opts) end)
 end
 
 --- Convenient wapper to save code when we Trigger events.
