@@ -29,7 +29,7 @@ On lazy
 ```lua
 --- EXAMPLE: Run lazy after `:MasonUpdateAll` finishes updating.
 vim.api.nvim_create_autocmd("User", {
-  pattern = "MasonUpdateAllComplete",
+  pattern = "MasonUpdateAllCompleted",
   callback = function()
     vim.cmd(":Lazy update")
   end,
