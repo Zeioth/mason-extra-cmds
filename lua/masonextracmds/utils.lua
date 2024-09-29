@@ -16,7 +16,6 @@ function M.notify(msg, type, opts)
   end)
 end
 
-
 --- Convenient wapper to save code when we Trigger events.
 --- @param event string Name of the event.
 --  @usage To run a User event:   `trigger_event("User MyUserEvent")`
