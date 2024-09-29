@@ -12,7 +12,6 @@
 --      -> update_packages        → update every individual mason package.
 --      -> notify_update_complete → callback to call when update_packages complete.
 
-
 local utils = require("masonextracmds.utils")
 
 local M = {}
@@ -58,13 +57,15 @@ end
 --- @param callback function The callback function to execute once all updates have been checked.
 function M.update_packages(installed_pkgs, callback)
   local remaining = #installed_pkgs -- Count of remaining packages to check for updates.
-  local updates_found = false       -- Flag to indicate if any updates were found.
+  local updates_found = false -- Flag to indicate if any updates were found.
 
   for _, pkg in ipairs(installed_pkgs) do
     pkg:check_new_version(function(update_available, version)
       if update_available then
         updates_found = true
-        utils.notify(("Updating %s to %s"):format(pkg.name, version.latest_version))
+        utils.notify(
+          ("Updating %s to %s"):format(pkg.name, version.latest_version)
+        )
 
         -- install update and update remaining count.
         install_update(pkg, function()
