@@ -83,11 +83,13 @@ end
 --- Notifies the user and triggers the completion event based on update status.
 --- @param updates_found boolean Indicates if any updates were found.
 function M.notify_update_complete(updates_found)
-  if not updates_found then
-    utils.notify("Update Complete")
-  else
-    utils.notify("No updates available")
-  end
+  vim.defer_fn(function()
+    if updates_found then
+      utils.notify("Update Complete")
+    else
+      utils.notify("No updates available")
+    end
+  end, 1000) -- Ensure the callback is not executed ahead of time.
   utils.trigger_event("User MasonUpdateAllCompleted")
 end
 
