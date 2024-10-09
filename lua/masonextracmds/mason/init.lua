@@ -22,7 +22,7 @@ function M.update_all()
 
   -- update the registry of updates, and run this function as callback.
   registry.update(vim.schedule_wrap(function(success, updated_registries)
-    -- guard clause: if failed, exit.
+    -- guard clause: if failed, abort.
     if not success then
       notify(("Failed to get updates: %s"):format(updated_registries))
       return false
