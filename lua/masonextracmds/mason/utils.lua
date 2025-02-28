@@ -89,8 +89,8 @@ function M.notify_update_complete(updates_found)
     else
       utils.notify("No updates available")
     end
+    utils.trigger_event("User MasonUpdateAllCompleted")
   end, 1000) -- Ensure the callback is not executed ahead of time.
-  utils.trigger_event("User MasonUpdateAllCompleted")
 end
 
 return M
