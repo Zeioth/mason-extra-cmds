@@ -16,8 +16,6 @@ local M = {}
 function M.update_all()
   notify("Checking for package updates...")
 
-
-
   -- guard clause: if no mason registry, abort.
   local registry = utils.get_mason_registry()
   if not registry then return false end
