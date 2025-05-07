@@ -50,5 +50,5 @@ vim.api.nvim_create_autocmd("User", {
 Through the same mechanism you could also do `:TSUpdate` to update `treesitter`, for example.
 
 ## Tested versions
-* Neovim: `0.10`/`0.11`
-* Mason: `v1.x.x`
+* Neovim: `0.11`/`0.12`
+* Mason: `v2.x.x`
