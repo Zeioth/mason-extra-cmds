@@ -34,7 +34,7 @@ end
 function M.get_mason_registry()
   local registry_avail, registry = pcall(require, "mason-registry")
   if not registry_avail then
-    vim.api.nvim_err_writeln("Unable to access mason registry")
+     vim.api.nvim_echo({"Unable to access mason registry"}, true, {err = true})
     return nil
   end
   return registry
@@ -60,23 +60,26 @@ function M.update_packages(installed_pkgs, callback)
   local updates_found = false -- Flag to indicate if any updates were found.
 
   for _, pkg in ipairs(installed_pkgs) do
-    pkg:check_new_version(function(update_available, version)
-      if update_available then
-        updates_found = true
-        utils.notify(
-          ("Updating %s to %s"):format(pkg.name, version.latest_version)
-        )
 
-        -- install update and update remaining count.
-        install_update(pkg, function()
-          remaining = remaining - 1
-          if remaining == 0 then callback(updates_found) end
-        end)
-      else -- skip
+    local current_version = pkg:get_installed_version()
+    local new_version = pkg:get_latest_version()
+
+    if new_version ~= current_version then
+      updates_found = true
+      utils.notify(
+        ("Updating %s to %s"):format(pkg.name, new_version)
+      )
+
+      -- install update and update remaining count.
+      install_update(pkg, function()
         remaining = remaining - 1
         if remaining == 0 then callback(updates_found) end
-      end
-    end)
+      end)
+    else -- skip
+      remaining = remaining - 1
+      if remaining == 0 then callback(updates_found) end
+    end
+
   end
 end
 
@@ -89,8 +92,8 @@ function M.notify_update_complete(updates_found)
     else
       utils.notify("No updates available")
     end
+    utils.trigger_event("User MasonUpdateAllCompleted")
   end, 1000) -- Ensure the callback is not executed ahead of time.
-  utils.trigger_event("User MasonUpdateAllCompleted")
 end
 
 return M

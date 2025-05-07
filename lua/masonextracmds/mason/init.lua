@@ -16,13 +16,15 @@ local M = {}
 function M.update_all()
   notify("Checking for package updates...")
 
+
+
   -- guard clause: if no mason registry, abort.
   local registry = utils.get_mason_registry()
   if not registry then return false end
 
   -- update the registry of updates, and run this function as callback.
   registry.update(vim.schedule_wrap(function(success, updated_registries)
-    -- guard clause: if failed, exit.
+    -- guard clause: if failed, abort.
     if not success then
       notify(("Failed to get updates: %s"):format(updated_registries))
       return false
